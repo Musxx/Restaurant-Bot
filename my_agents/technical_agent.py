@@ -1,5 +1,6 @@
 from agents import Agent, RunContextWrapper
 from models import UserAccountContext
+from output_guardrails import technical_output_guardrail
 
 
 def dynamic_technical_agent_instructions(
@@ -54,4 +55,5 @@ def dynamic_technical_agent_instructions(
 technical_agent = Agent(
     name="Technical Support Agent",
     instructions=dynamic_technical_agent_instructions,
+    output_guardrails=[technical_output_guardrail],
 )

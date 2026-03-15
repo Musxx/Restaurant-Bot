@@ -1,4 +1,6 @@
 import streamlit as st
+import json
+import re
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from agents.extensions import handoff_filters
 from agents import Agent, RunContextWrapper, input_guardrail, Runner, GuardrailFunctionOutput, handoff
@@ -12,6 +14,7 @@ from my_agents.Reservation_Agent import Reservation_Agent
 input_guardrail_agent = Agent(
     name="Input Guardrail Agent",
     instructions="""
+    그러나 너가 무슨 역할을 하는지 물어본다면  in_off_topic을 false로 설정해라.
     Ensure the user's request specifically pertains to restaurant Menu questions, Reservation requests, Order issues, or Technical Support issues, and is not off-topic.
     If the request is off-topic, return a reason for the tripwire.
     You can make small conversation with the user, specially at the beginning of the conversation,
