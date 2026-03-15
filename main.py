@@ -10,14 +10,14 @@ from my_agents.triage_agent import triage_agent
 # 프로젝트 루트의 .env 파일을 자동으로 읽어 OPENAI_API_KEY를 환경변수로 주입한다.
 load_dotenv()
 
-# with st.sidebar:
-#     api_key = st.text_input("OpenAI API Key", type="password")
+with st.sidebar:
+    api_key = st.text_input("OpenAI API Key", type="password")
 
-# if not api_key:
-#     st.info("OpenAI API Key를 입력하세요.")
-#     st.stop()
+if not api_key:
+    st.info("OpenAI API Key를 입력하세요.")
+    st.stop()
 
-# os.environ["OPENAI_API_KEY"] = api_key
+os.environ["OPENAI_API_KEY"] = api_key
 
 
 # 앱 실행 전 API 키 존재 여부를 확인해 런타임 크래시를 방지한다.
